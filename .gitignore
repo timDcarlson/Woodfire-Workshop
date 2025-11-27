@@ -1,3 +1,20 @@
-lesson plans and handouts.aux
-lesson plans and handouts.synctex.gz
-lesson plans and handouts.log
+# images (remove if you want to track images)
+*.jpg
+*.png
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.synctex.gz
+*.out
+*.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+
+# generated output
+*generated_gallery*
+
+# ignore all items in the scripts folder
+/scripts/**
