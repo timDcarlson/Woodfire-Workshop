@@ -5,7 +5,7 @@
 \usepackage{enumitem}
 \setlist{nosep}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning}
+\usetikzlibrary{arrows.meta, positioning, matrix, calc}
 \usepackage{iftex}
 % breakurl uses pdftex-specific primitives; load it only when using pdfTeX.
 % For XeLaTeX/LuaLaTeX use the standard url package (hyperref will work with it).
@@ -22,6 +22,10 @@
 % Allow graphics filenames with multiple dots or spaces
 \usepackage{grffile}
 \usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{soul}
+\usepackage{wrapfig}
+\usepackage{caption}
 
 
 \begin{document}
@@ -53,16 +57,16 @@
 \begin{enumerate}
   \item \textbf{Introduction (20 min)}: Brief history of kohiki slip; show examples.
   \item \textbf{Slab Preparation (20 min)}: Demonstrate rolling slabs evenly; discuss thickness control.
-  \item \textbf{Slip Application (60 min)}: Demonstrate brushing, dipping, or pouring slip; encourage freedom and experimentation--see discussion and exercises below.
+  \item \textbf{Slip Application (60 min)}: Demonstrate brushing, dipping, or pouring slip; encourage freedom and experimentation--see discussion and exercises below.  Before lunch break, demonstrate stretching technique to distort brushwork for dramatic effect.
   \item \textbf{Lunch and Patience ($\approx$1.5 hr)}: Allow time for slip and clay to firm up.
   \begin{itemize}
-    \item \textbf{Structured Lunch/Throwing Demo (40 min)}: Provide short guided exercises students can do while waiting.
+    \item \textbf{Structured Lunch/Teapot Demo (40 min)}: Provide entertainment in creating a teapot during lunch.
     \item \textbf{Structured Lunch/Practice Slot (20–30 min)}: Provide short guided exercises students can do while waiting.
     \subitem \textbf{--Goal}: Turn downtime into deliberate practice focused on slip observation and simple brushwork.
   \end{itemize}
-  \item \textbf{Discussion on Leatherhard Stage (20 min)}: Talk about ideal leatherhard conditions for construction; show examples.
-  \item \textbf{Slab Construction (1 hr)}: Demonstrate joining slabs into simple forms; emphasize scoring and compression.
-  \item \textbf{Wrap-Up Discussion (15 min)}: Share results; discuss how kohiki surfaces change in firing.
+  % \item \textbf{Discussion on Slab Moisture Content  (20 min)}: Talk about ideal moisture conditions for construction; show examples.
+  \item \textbf{Slab Construction (1 hr)}: Demonstrate joining slabs into simple forms; emphasize simple forms, scoring, and compression.
+  \item \textbf{Wrap-Up Discussion (30 min)}: Share results.  Encourage discussion and reflection on slip application and surface effects; consider surface effects from the firing process.
 \end{enumerate}
 
 \subsection*{Teaching Notes}
@@ -71,7 +75,13 @@
   \item Encourage integration of surface decoration with form.
   \item Highlight how firing atmosphere alters slip appearance.
 \end{itemize}
+\clearpage
+% ---------------------------------------------------------------------------
+\section*{Recommended Tools/Materials to Bring}
+\textcolor{red}{Create list of personal items recommended for participants to bring to the workshop, such as aprons, notebooks, personal brushes, etc.}
 
+
+\clearpage
 % ---------------------------------------------------------------------------
 \section*{Kohiki Slip}
 
@@ -124,27 +134,32 @@
 
 A couple modern examples of popular kohiki slip decoration by Akira Satake and Robert Fornell, as shown in the images below.  I started experimenting with kohiki slip decoration after seeing Satake's work.
 \begin{center}
-    \includegraphics[width=0.45\textwidth]{"0E86D316-7988-4B0F-956F-CD873AA9155E.jpg"}\qquad\includegraphics[width=0.45\textwidth]{"Screenshot 2025-11-24 205841.png"}
+    \includegraphics[width=0.45\textwidth]{"0E86D316-7988-4B0F-956F-CD873AA9155E.jpg"}\qquad\includegraphics[width=0.45\textwidth]{"Screenshot 2025-11-24 205841.jpg"}
 \end{center}
 
 \newpage
 
 A beautiful example of a more traditional kohiki piece is this tea bowl identified as Agano ware on this website: \url{https://qualitychanoyu.com/2023/01/13/antique-agano-ware-kobiki-chawan/}
-\begin{center}
-    \includegraphics[width=0.5\textwidth]{"Screenshot 2025-11-24 204241.png"}
-\end{center}
 
+\begin{wrapfigure}[13]{l}{0.5\textwidth}
+  \vspace{-12pt}
+  \centering
+  \includegraphics[width=0.5\textwidth]{"Screenshot 2025-11-24 204241.jpg"}
+  \vspace{-12pt}
+\end{wrapfigure}
 
+Although Europeans later came to prize East Asian porcelain and reshaped its markets, the white surfaces used in Punch'\=ong and kohiki developed within East Asia before Europeans had sustained contact. These white\-slip techniques grew from local aesthetics and kiln practice, not from European influence. European demand in the 17th--19th centuries expanded export production in China and inspired European porcelain manufacture, but it did not influence Korea's (and later Japan's shino ware) white\-slip aesthetics.
+
+\rule{0pt}{25mm}
 Other links of interest about kohiki ware:
+{\footnotesize 
 \begin{itemize}
   \item \url{https://turuta.jp/ceramics-story/archives/21164}
   \item \url{https://dawan-chawan-chassabal.blogspot.com/2010/02/powdery-matsudaira-at-hatakeyama-museum.html}
   \item \url{https://dawan-chawan-chassabal.blogspot.com/2010/11/powdery-matsudaira-revisited.html}\\[5pt]
-\end{itemize}
+\end{itemize}}
 
-Although Europeans later came to prize East Asian porcelain and reshaped its markets, the white surfaces used in Punch'ŏng and kohiki developed within East Asia before Europeans had sustained contact. These white‑slip techniques grew from local aesthetics and kiln practice, not from European influence. European demand in the 17th–19th centuries expanded export production in China and inspired European porcelain manufacture, but it did not influence Korea’s (and later Japan’s shino ware) white‑slip aesthetics.
-
-\clearpage
+After we work through the slabs, the following section will become apparent why we need to think about thickness of the slabs we are making.
 \subsection*{Slab Thickness: Importance and Tradeoffs}
 
 The thickness of your clay slab is important for both the construction process and the final appearance of your work. 
@@ -158,8 +173,9 @@ The thickness of your clay slab is important for both the construction process a
 
 \textbf{Tradeoff}: Choose slab thickness based on your intended technique and form. For kohiki slip decoration, a medium thickness (typically 6-8\,mm) balances workability, surface quality, and structural strength. Always test and adjust based on your clay body and project needs.
 
-\textcolor{red}{Add discussion here about below material!}
-
+\clearpage
+\subsection*{Exercises With the Brush}
+The following are exercises I encourage you to practice.  Please take these with you when you leave and work on them in your own studio time.
 \subsection*{Practice (30--40 min)}
 Keep materials minimal: work on wooden bats for slip applications.
 \begin{enumerate}
@@ -177,42 +193,7 @@ Keep materials minimal: work on wooden bats for slip applications.
   \item \textbf{Ribs (2 min)}: Drag a rib or flat tool through wet slip to create texture; vary angle and pressure for different effects.
 \end{enumerate}
 
-\section*{Lunch / Patience: Guided Exercises}
-
-\textcolor{red}{Add discussion here about below material!}
-
-\subsection*{\textbf{Exercise}: slab forming and stretching}
-For a more exaggerated \& dramatic appearance of the brush work on your slab pieces, try the following exercise during lunch or downtime:
-\begin{itemize}
-  \item \textbf{Slab forming}: Get a small slab of clay (about 8\,mm thick) from the instructor with kohiki slip already applied.
-  \item \textbf{Stretching}: Carefully pick the small slab up from one edge and practice stretching it by carefully throwing it back down onto the table or canvas at roughly a 45 degree angle. The goal is to elongate the slab and distort the brushwork in an interesting way without tearing the clay.
-  \item \textbf{Repeat}: Try this several times, varying the side you pick up from and the angle of impact. Observe how the brushwork changes with each stretch.
-  \item \textbf{Notes}: Take a moment to write down your impressions about how to throw the clay to get different effects, and any challenges you faced in keeping the slab intact and well textured.
-\end{itemize}
-
-
-
-\subsection*{Slip Consistency \& Quick Recipe}
-\begin{itemize}
-\item Basic Kohiki Slip Recipe:\\[2pt]
-    \begin{tabular}{@{}ll@{}}
-        EPK kaolin:      & 500 g \\
-        OM4 ball clay:   & 400 g \\
-        G-200 feldspar:  & 600 g \\
-        Silica:          & 500 g \\
-    \end{tabular}
-  \item Water: variable--depends on deflocculant use if any.
-  \begin{enumerate}
-    \item Thin toothpaste consistency
-    \item Thick cream consistency
-    \item Any range in between depending on your application style and decorative goals
-  \end{enumerate}
-  \item Deflocculant (sodium silicate or Darvan): 1--3 g, if needed to thin without settling\footnote{Deflocculants help reduce the amount of water needed, but can reduce the workability of the clay beneath the slip. Use sparingly and test.}
-\end{itemize}
-
-\textcolor{red}{Add discussion here about below material!}
-
-\subsection*{Quick Tests}
+\subsection*{Slip Application Tests}
 \begin{itemize}
   \item \textbf{Brush-Load Test}: Dip brush and make a 10 cm stroke; note opacity and pooling.
   \item \textbf{Adhesion Test}: Apply slip to a scrap of the class body, bend gently when leatherhard—does it crack or flake?
@@ -228,28 +209,161 @@ For a more exaggerated \& dramatic appearance of the brush work on your slab pie
   \item Any textural interaction where slip meets tool marks.
 \end{itemize}
 
-\textcolor{red}{Add discussion here about below material!}
+\clearpage
+\section*{Lunch / Patience}
 
-\subsection*{Two Micro-lectures (5--7 min each)}
-	extbf{Micro-lecture A — Aesthetics of Kohiki (5 min)}: Discuss wabi-sabi, the value of subtlety, and how controlled imperfection enhances form. Show 2--3 images and ask students to name one element they find compelling.
+Below are some more exercises I want you to try during lunch or downtime.  These are designed to help you build your skills and understanding of kohiki slip decoration.  We will also be talking a bit about various subjects during this time.
 
-	extbf{Micro-lecture B — Kiln Transformations (5 min)}: Explain how wood/soda firing can change slip surface—ash deposition, reduction/oxidation effects, and how slip texture traps or resists glaze.
+\subsection*{\textbf{Exercise}: Slab Forming and Stretching}
+For a more exaggerated \& dramatic appearance of the brush work on your slab pieces, try the following exercise during lunch or downtime:
+\begin{itemize}
+  \item \textbf{Slab forming}: Get a small slab of clay (about 8\,mm thick) from the instructor with kohiki slip already applied.
+  \item \textbf{Stretching}: Carefully pick the small slab up from one edge and practice stretching it by carefully throwing it back down onto the table or canvas at roughly a 45 degree angle. The goal is to elongate the slab and distort the brushwork in an interesting way without tearing the clay.
+  \item \textbf{Repeat}: Try this several times, varying the side you pick up from and the angle of impact. Observe how the brushwork changes with each stretch.
+  \item \textbf{Notes}: Take a moment to write down your impressions about how to throw the clay to get different effects, and any challenges you faced in keeping the slab intact and well textured.
+\end{itemize}
+
+\subsection*{Slip Consistency \& Quick Recipe (for reference)}
+\begin{itemize}
+\item Basic $\Delta10$ Kohiki Slip Recipe:\\[5pt]
+    \rule{1cm}{0pt}
+    \begin{tabular}{@{}ll@{}}
+        EPK kaolin:      & 500 g \\
+        Ball clay:   & 400 g \\
+        Feldspar:  & 600 g \\
+        Silica:          & 500 g \\
+    \end{tabular}\\[5pt]
+  \item Water: variable--depends on deflocculant use if any.
+  \begin{enumerate}
+    \item Thin toothpaste consistency
+    \item Thick cream consistency
+    \item Any range in between depending on your application style and decorative goals\\[5pt]
+  \end{enumerate}
+  \item Deflocculant (sodium silicate or Darvan): 1--3 g if needed, to thin without settling\footnote{Deflocculants help reduce the amount of water needed, but can reduce the workability of the clay beneath the slip. Use sparingly and test.}
+\end{itemize}
+
+\clearpage
+\section*{Lunch Discussions}
+	\subsection*{Aesthetics of Kohiki}
+  Discuss wabi-sabi, the value of subtlety, and how \ul{controlled} imperfection enhances form. % Show 2--3 images and ask students to name one element they find compelling.\\
+  \subsubsection*{Wabi-sabi vs. Mingei}
+  % The underlying theme is that wabi-sabi is the aesthetic lens and mingei is the social philosophy.
+
+\begin{center}
+\scalebox{.67}{
+\begin{tikzpicture}[xscale=2,
+timeline/.style={thick,-{Stealth[length=3mm]}},
+event/.style={rectangle,draw,rounded corners,fill=gray!10,align=center,text width=26mm}
+]
+
+% Timeline axis
+\draw[timeline] (0,0) -- (12,0);
+
+% Tickmarks and date labels (placed to match the event positions)
+\foreach \x/\xlabel in {1/16th\,c.,4/17th\,c.,7/18th\,c.,9/1920s,10.5/1930s,12/20th\,c.}{%
+  \draw[thick] (\x,0.12) -- (\x,-0.12);
+  \node[below=2mm] at (\x,0) {\small \xlabel};
+}
+
+% Wabi-sabi events
+\node[event,above=5mm of {(1,0)},text width=5cm] (wabi1) {16th c.\\Wabi-sabi--Tea aesthetics};
+\node[event,above=5mm of {(4,0)},text width=5cm] (wabi2) {Zen influence\\Rusticity, impermanence};
+\node[event,above=5mm of {(7,0)},text width=5cm] (wabi3) {Elite tea culture\\Refined austerity};
+
+% Mingei events
+\node[event,below=5mm of {(9,-.5)}] (mingei1) {1920s\\Yanagi coins\\``Mingei''};
+\node[event,below=5mm of {(10.5,-.5)}] (mingei2) {1930s\\Mingei movement\\Folk crafts};
+\node[event,below=5mm of {(12,-.5)}] (mingei3) {20th c. legacy\\Democratic craft aesthetics};
+
+% Labels
+\node[align=center] at (2,3) {\textbf{Wabi-sabi:}\\Reflection, impermanence, solitude};
+\node[align=center] at (10,-4) {\textbf{Mingei:}\\Collective, utilitarian, folk beauty, local identity};
+
+\end{tikzpicture}
+}
+\newline
+
+\begin{tabular}{|l|p{5cm}|p{5cm}|}
+\hline
+\textbf{Aspect} & \textbf{Mingei (Yanagi)} & \textbf{Wabi-sabi} \\
+\hline
+Origin & 1920s–30s folk craft movement led by Yanagi Sōetsu & 16th century Zen tea aesthetics \\
+\hline
+Focus & Everyday, utilitarian objects made by an anonymous craftsman\textsuperscript{*} & Imperfection, impermanence, rustic simplicity \\
+\hline
+Philosophy & Collective recognition of “beyond beauty and ugliness” & Contemplative, insight into transience \\
+\hline
+Social Dimension & Communal craft traditions, cultural preservation & Elite tea culture, spiritual refinement \\
+\hline
+\end{tabular}
+
+\begin{flushleft}
+\textsuperscript{*}\footnotesize{Please understand I am using the term ``craftsman'' in the same form as ``human.''}
+\end{flushleft}
+
+\end{center}
+
+\section*{How Yanagi Differentiated Them}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Mingei as collective beauty:} Yanagi argued that folk crafts are beautiful precisely because they are made by nameless artisans for everyday use, not for individual artistic expression. This contrasts with \emph{wabi-sabi}, which often highlights the personal, contemplative experience of imperfection.
+  
+  \item \textbf{Functional vs. contemplative:} Mingei objects are functional tools of daily life (bowls, textiles, furniture). Wabi-sabi objects (tea bowls, gardens, architecture) are often vehicles for meditation and aesthetic reflection.
+  
+  \item \textbf{Democratic vs. elite aesthetics:} Yanagi saw mingei as a democratic art form, accessible to all. Wabi-sabi, though humble, was historically tied to the tea ceremony and elite Zen culture.
+\end{itemize}
+
+\vspace{1em}
+
+\begin{tcolorbox}[colback=gray!10,colframe=black,title=\textbf{Why This Matters}]
+Yanagi’s distinction is important because it shows that there are different ways of thinking about beauty—some focus on everyday objects made by many people (mingei), while others focus on quiet, simple beauty, and personal reflection (wabi-sabi). 
+Mingei is about community, utility, and cultural survival, while wabi-sabi is about solitude, impermanence, and spiritual refinement. 
+Both overlap in valuing simplicity and naturalness, but they diverge in social function and philosophical grounding.
+
+Put simply, Mingei is a social philosophy of creation and use, while Wabi-sabi is \textit{a way of seeing the world} and objects within it. Objects do not possess a quality of wabi-sabi; rather, wabi-sabi is a lens through which we appreciate them.
+\end{tcolorbox}
+
+{\begin{center}
+% Wabi-Sabi gallery
+\input{wabiSabi_generated_gallery.tex}
+\clearpage
+% Hamada and Kawai gallery 
+\input{generated_gallery.tex}
+\end{center}}
+\clearpage
+
+
+\textcolor{red}{Work on the following sections to complete the lesson plan.}
+\subsection*{Kiln Transformations}
+Explain how wood/soda firing interacts with clay and slip surface—ash deposition, reduction/oxidation effects, and how slip texture traps or resists glaze.
+
+% Slab expansion, construction, and drying discussion
+\subsection*{Slab Expansion \& Construction}
+
+\subsection*{Wrap-up; Reflection, Critique, Expectations, and Next Steps}
 
 \subsection*{Safety \& Handling Notes}
 \begin{itemize}
-  \item Always wash hands after handling slips containing deflocculants.
-  \item Keep sanding and dry-scraping to a minimum; use wet cleaning to avoid airborne silica.
-  \item Label slip containers; avoid cross-contamination between white and colored slips.
-  \item For soda firing: follow kiln-specific SDS guidance for soda ash and wear PPE when handling solutions.
+  \item Wash hands after handling slips containing deflocculants.
+  \item Keep sanding and dry-scraping to a minimum.
+  \item Label slip containers; avoid cross-contamination between different slips.
 \end{itemize}
 
-\subsubsection*{What I Notice / What I Would Change (Worksheet)}
+\subsubsection*{What I Notice / What I Would Change (Fill This Out)}
 \begin{enumerate}
-  \item Sample ID: \hrulefill\\
-  \item Observations (3 lines): \hrulefill\\ \hrulefill\\ \hrulefill
-  \item One change I would make next time: \hrulefill\\
-  \item Confidence (1–5): \hrulefill
+  \item \rule{0pt}{1cm}Identification: \hrulefill\\
+  \item Observations: \hrulefill\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}\\[6pt]
+  \item One change I would make next time: \hrulefill\\[16pt] \rule{\linewidth}{0.4pt}
 \end{enumerate}
+
+\clearpage
+
+
+% ---------------------------------------------------------------------------
+\section*{Recommended Reading Materials}
+\textcolor{red}{Create a list of recommended books, articles, and online resources for further study on kohiki slip decoration and wood-fired soda firing.}
+
+\clearpage
 
 
 \newpage
@@ -268,7 +382,7 @@ For a more exaggerated \& dramatic appearance of the brush work on your slab pie
 \subsection*{Materials}
 \begin{itemize}
   \item Bisque-fired student work (preferably with  surfaces prepped for wood+soda).
-  \item Wadding materials (alumina hydrate + kaolin).
+  \item Wadding materials (refractory wadding mix, alumina hydrate, kiln wash).
   \item Kiln shelves, posts, protective gear.
   \item Wood for firing (species discussion: pine, oak, etc.).
   \item Soda mix (soda ash + baking soda + whiting, in water) -- following the suggestions of Gail Nichols.
@@ -276,12 +390,12 @@ For a more exaggerated \& dramatic appearance of the brush work on your slab pie
 
 \subsection*{Activities}
 \begin{enumerate}
-  \item \textbf{Introduction (20 min)}: Explain soda firing chemistry; show examples.
-  \item \textbf{Preparation of Work (30 min)}: Demonstrate wadding placement; discuss glaze choices.
-  \item \textbf{Kiln Loading (45 min)}: Explain loading strategies; emphasize safety and teamwork.
-  \item \textbf{Firing Process (30 min overview)}: Walk through firing stages; demonstrate soda introduction; discuss temperature targets.
-  \item \textbf{Cooling \& Unloading (Next Session)}: Explain cooling protocols; plan for unloading and critique.
-  \item \textbf{Wrap-Up Discussion (15 min)}: Anticipate results; encourage embracing variation and unpredictability.
+  \item \textbf{Introduction}: Explain soda firing chemistry; show examples.
+  \item \textbf{Preparation of Work}: Demonstrate wadding placement; discuss glaze choices.
+  \item \textbf{Kiln Loading}: Explain loading strategies; emphasize safety and teamwork.
+  \item \textbf{Firing Process}: Walk through firing stages; demonstrate soda introduction; discuss temperature targets.
+  \item \textbf{Cooling \& Unloading}: Explain cooling protocols; plan for unloading and critique.
+  \item \textbf{Wrap-Up Discussion}: Anticipate results; encourage embracing variation and unpredictability.
 \end{enumerate}
 
 \subsection*{Teaching Notes}
@@ -290,16 +404,6 @@ For a more exaggerated \& dramatic appearance of the brush work on your slab pie
   \item Highlight unpredictability as part of the aesthetic.
   \item Connect back to constructed works: how soda atmosphere transforms surfaces.
 \end{itemize}
-
-\section*{Suggested Flow}
-\begin{itemize}
-  \item Works construction.
-  \item Bisque firing.
-  \item Soda firing preparation: kiln prep, loading, firing overview.
-  \item Kiln unloading, critique, reflection.
-\end{itemize}
-
-
 
 
 
