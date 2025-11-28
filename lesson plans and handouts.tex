@@ -2,6 +2,8 @@
 \usepackage{geometry}
 \geometry{margin=1in}
 \usepackage{xcolor}
+\usepackage{mathspec}
+\setmainfont{DejaVu Sans}
 \usepackage{enumitem}
 \setlist{nosep}
 \usepackage{tikz}
@@ -40,19 +42,6 @@
   \item Guide students through applying kohiki slip and integrating it into functional or sculptural forms.
 \end{itemize}
 
-\subsection*{Materials}
-\begin{itemize}
-  \item Clay body (dark stoneware recommended).
-  \item White slip (prepared to a thick cream consistency).
-  \item Brushes, sponges, etc\ldots
-  \item Straight edges, rulers, tar paper for patterns.
-  \item Rolling pins or slab roller.
-  \item Canvas boards for rolling slabs.
-  \item Wooden boards for working surfaces.
-  \item Bevel cutters, knives, and scoring tools.
-  \item Reference images of kohiki ware.
-\end{itemize}
-
 \subsection*{Activities}
 \begin{enumerate}
   \item \textbf{Introduction (20 min)}: Brief history of kohiki slip; show examples.
@@ -61,7 +50,7 @@
   \item \textbf{Lunch and Patience ($\approx$1.5 hr)}: Allow time for slip and clay to firm up.
   \begin{itemize}
     \item \textbf{Structured Lunch/Teapot Demo (40 min)}: Provide entertainment in creating a teapot during lunch.
-    \item \textbf{Structured Lunch/Practice Slot (20–30 min)}: Provide short guided exercises students can do while waiting.
+    \item \textbf{Structured Lunch/Practice Slot (20-30 min)}: Provide short guided exercises students can do while waiting.
     \subitem \textbf{--Goal}: Turn downtime into deliberate practice focused on slip observation and simple brushwork.
   \end{itemize}
   % \item \textbf{Discussion on Slab Moisture Content  (20 min)}: Talk about ideal moisture conditions for construction; show examples.
@@ -77,17 +66,54 @@
 \end{itemize}
 \clearpage
 % ---------------------------------------------------------------------------
-\section*{Recommended Tools/Materials to Bring}
-\textcolor{red}{Create list of personal items recommended for participants to bring to the workshop, such as aprons, notebooks, personal brushes, etc.}
+\section*{Supplies, Recommended Tools, \& Materials to Bring}
 
+\subsection*{Materials Supplied by Workshop Instructors, but in limited quantities.}
+\begin{itemize}
+  \item Clay body (dark stoneware recommended).
+  \item White slip (prepared to a thick cream consistency).
+  \item Rolling pins or slab roller.
+  \item Brushes, sponges, etc.\ldots~\textcolor{red}{~\textcolor{red}{$^\dagger$}}
+  \item Straight edges, rulers, tar paper for patterns.~\textcolor{red}{$^\dagger$}
+  \item Canvas for rolling slabs.~\textcolor{red}{$^\dagger$}
+  \item Wooden boards for working surfaces.~\textcolor{red}{$^\dagger$}
+  \item Bevel cutters, knives, and scoring tools.~\textcolor{red}{$^\dagger$}
+\end{itemize}
+
+\subsection*{Personal Tools Suggested for Participants to Bring to the Studio}
+\begin{itemize}
+  \item Apron or old clothes.
+  \item Notebook and pen for notes and sketches.
+  \item Personal brushes for slip application.  Old crusty brushes are my favorite for creating interesting textures.
+  \item Soft rib or plastic card for smoothing slabs.
+  \item Any preferred carving or texturing tools.
+  \item Any items marked with ~\textcolor{red}{$\dagger$} above, if you have them.
+\end{itemize}
+
+\subsection*{Clothing Suggested for Participants at the Kiln Site}
+\begin{itemize}
+  \item Cotton or woolen clothing (avoid synthetics).
+  \item Notebook and pen for notes and sketches.
+  \item Sturdy, closed-toe shoes.
+  \item Gloves for handling hot items and for handling rough materials.
+  \item Hair ties, hats, or other means to keep long hair secured.
+\end{itemize}
 
 \clearpage
 % ---------------------------------------------------------------------------
+
+Here's a quote that I'd like everyone to keep in mind as we work through the kohiki slip exercises and slab building:
+
+\begin{quotation}
+  Without consciously thinking something is good or bad, creating as if it were the most natural thing in the world to do, making things that are plain and simple but marvelous, this is the state of mind in which artisans do their finest work.
+
+  I think I can clarify this state of mind through an analogy. For human beings, walking is the most ordinary of activities.  Even the most simple minded person can walk well.But no one is ever praised for being a good walker, and no one takes special pride in doing so.  This is how I would like to view the artisan's state of mind when he is at work.\footnote{Adapted from Soetsu Yanagi, \textbf{The Beauty of Everyday Things}, 1964.}
+\end{quotation}
 \section*{Kohiki Slip}
 
 \scalebox{.7}{
 \begin{tikzpicture}[
-  timeline/.style={rectangle, draw, rounded corners, align=center, text width=3.5cm},
+  timeline/.style={rectangle, draw, rounded corners, align=center, text width=3.5cm, font=\footnotesize},
   arrow/.style={-{Latex[length=3mm]}, thick}
 ]
 
@@ -109,48 +135,47 @@
 
 \scalebox{.7}{
 \begin{tikzpicture}[
-  timeline/.style={rectangle, draw, rounded corners, align=center, text width=3.5cm},
+  timeline/.style={rectangle, draw, rounded corners, align=center, text width=3.5cm, font=\footnotesize},
   arrow/.style={-{Latex[length=3mm]}, thick}
 ]
 
 % Nodes
 \node[timeline] (imjin) {1592--1598 \\ Imjin Wars \\ Toyotomi Hideyoshi invades Korea};
 \node[timeline, right=2cm of imjin] (migration) {Late 1500s--early 1600s \\ Forced Migration \\ Thousands of Korean potters relocated to Japan};
-\node[timeline, right=2cm of migration] (techniques) {17th c. \\ Transmission of Techniques \\ Punch’ŏng slip, porcelain, celadon introduced};
+\node[timeline, right=2cm of migration] (techniques) {17th c. \\ Transmission of Techniques \\ Punch'ŏng slip, porcelain, celadon introduced};
 \node[timeline, right=2cm of techniques] (integration) {17th--18th c. \\ Integration into Japanese Ceramics \\ Kohiki, Arita porcelain, and hybrid styles emerge};
-\node[above=1cm of imjin, align=left, anchor =north west, text width=20cm] {\textbf{\large Parallel Timeline: Import of Korean and Chinese Potters to Japan}};
+\node[above=14mm of imjin, align=left, anchor =north west, text width=20cm] {\textbf{\large Parallel Timeline: Import of Korean and Chinese Potters to Japan}};
 
 % Arrows
 \draw[arrow] (imjin) -- (migration);
 \draw[arrow] (migration) -- (techniques);
 \draw[arrow] (techniques) -- (integration);
 
-\node[timeline, below=2cm of tea] (shino) {Late 1500s--early 1600s \\ Shino Ware Development \\ Mino region, Japan’s first white glaze pottery, parallel to Kohiki};
+\node[timeline, below=2cm of tea] (shino) {Late 1500s--early 1600s \\ Shino Ware Development \\ Mino region, Japan's first white glaze pottery, parallel to Kohiki};
 \draw[arrow, dashed] (japan) -- (shino);
 \draw[arrow, dashed] (shino) -- (integration);
 
 \end{tikzpicture}
 }\\[7pt]
 
+\clearpage
+
 A couple modern examples of popular kohiki slip decoration by Akira Satake and Robert Fornell, as shown in the images below.  I started experimenting with kohiki slip decoration after seeing Satake's work.
 \begin{center}
     \includegraphics[width=0.45\textwidth]{"0E86D316-7988-4B0F-956F-CD873AA9155E.jpg"}\qquad\includegraphics[width=0.45\textwidth]{"Screenshot 2025-11-24 205841.jpg"}
 \end{center}
-
-\newpage
-
+\vfill
 A beautiful example of a more traditional kohiki piece is this tea bowl identified as Agano ware on this website: \url{https://qualitychanoyu.com/2023/01/13/antique-agano-ware-kobiki-chawan/}
 
-\begin{wrapfigure}[13]{l}{0.5\textwidth}
+\begin{wrapfigure}[16]{l}{0.5\textwidth}
   \vspace{-12pt}
   \centering
   \includegraphics[width=0.5\textwidth]{"Screenshot 2025-11-24 204241.jpg"}
   \vspace{-12pt}
 \end{wrapfigure}
 
-Although Europeans later came to prize East Asian porcelain and reshaped its markets, the white surfaces used in Punch'\=ong and kohiki developed within East Asia before Europeans had sustained contact. These white\-slip techniques grew from local aesthetics and kiln practice, not from European influence. European demand in the 17th--19th centuries expanded export production in China and inspired European porcelain manufacture, but it did not influence Korea's (and later Japan's shino ware) white\-slip aesthetics.
+Although Europeans later came to prize East Asian porcelain and reshaped its markets, the white surfaces used in Punch'\=ong and kohiki developed within East Asia before Europeans had sustained contact. These white\-slip techniques grew from local aesthetics and kiln practice, not from European influence. European demand in the 17th--19th centuries expanded export production in China and inspired European porcelain manufacture, but it did not influence Korea's (and later Japan's shino ware) white\-slip aesthetics.\vfill
 
-\rule{0pt}{25mm}
 Other links of interest about kohiki ware:
 {\footnotesize 
 \begin{itemize}
@@ -159,16 +184,18 @@ Other links of interest about kohiki ware:
   \item \url{https://dawan-chawan-chassabal.blogspot.com/2010/11/powdery-matsudaira-revisited.html}\\[5pt]
 \end{itemize}}
 
+\clearpage
+
 After we work through the slabs, the following section will become apparent why we need to think about thickness of the slabs we are making.
 \subsection*{Slab Thickness: Importance and Tradeoffs}
 
-The thickness of your clay slab is important for both the construction process and the final appearance of your work. 
+The thickness of your clay slab is important for both the construction process and the final appearance of your work. \vfill
 
 \begin{itemize}
-  \item \textbf{Structural Integrity}: Thicker slabs are less prone to warping and cracking during handling and drying, making them more forgiving for experimental work or for larger forms.
-  \item \textbf{Workability}: Thinner slabs are easier to bend, shape, and join, but require more careful handling to avoid tearing or distortion during firing.
-  \item \textbf{Surface Techniques}: Very thin slabs may dry too quickly for certain slip or texture applications, while thick slabs can retain moisture longer, allowing more time for surface work.
-  \item \textbf{Aesthetics}: The visual weight and tactile feel of the finished piece are directly affected by slab thickness. Thicker walls can feel more robust, while thinner ones may appear more delicate or refined.
+  \item \textbf{Structural Integrity}: Thicker slabs are less prone to warping and cracking during handling and drying, making them more forgiving for experimental work or for larger forms.\vfill
+  \item \textbf{Workability}: Thinner slabs are easier to bend, shape, and join, but require more careful handling to avoid tearing or distortion during firing.\vfill
+  \item \textbf{Surface Techniques}: Very thin slabs may dry too quickly for certain slip or texture applications, while thick slabs can retain moisture longer, allowing more time for surface work.\vfill
+  \item \textbf{Aesthetics}: The visual weight and tactile feel of the finished piece are directly affected by slab thickness. Thicker walls can feel more robust, while thinner ones may appear more delicate or refined.\vfill
 \end{itemize}
 
 \textbf{Tradeoff}: Choose slab thickness based on your intended technique and form. For kohiki slip decoration, a medium thickness (typically 6-8\,mm) balances workability, surface quality, and structural strength. Always test and adjust based on your clay body and project needs.
@@ -220,36 +247,40 @@ For a more exaggerated \& dramatic appearance of the brush work on your slab pie
   \item \textbf{Slab forming}: Get a small slab of clay (about 8\,mm thick) from the instructor with kohiki slip already applied.
   \item \textbf{Stretching}: Carefully pick the small slab up from one edge and practice stretching it by carefully throwing it back down onto the table or canvas at roughly a 45 degree angle. The goal is to elongate the slab and distort the brushwork in an interesting way without tearing the clay.
   \item \textbf{Repeat}: Try this several times, varying the side you pick up from and the angle of impact. Observe how the brushwork changes with each stretch.
-  \item \textbf{Notes}: Take a moment to write down your impressions about how to throw the clay to get different effects, and any challenges you faced in keeping the slab intact and well textured.
+  \item \textbf{Notes}: Take a moment to write down your impressions about how to throw the clay to get different effects, and any challenges you faced in keeping the slab intact and well textured.\\[5pt]
 \end{itemize}
 
-\subsection*{Slip Consistency \& Quick Recipe (for reference)}
-\begin{itemize}
-\item Basic $\Delta10$ Kohiki Slip Recipe:\\[5pt]
-    \rule{1cm}{0pt}
-    \begin{tabular}{@{}ll@{}}
-        EPK kaolin:      & 500 g \\
-        Ball clay:   & 400 g \\
-        Feldspar:  & 600 g \\
-        Silica:          & 500 g \\
-    \end{tabular}\\[5pt]
-  \item Water: variable--depends on deflocculant use if any.
-  \begin{enumerate}
-    \item Thin toothpaste consistency
-    \item Thick cream consistency
-    \item Any range in between depending on your application style and decorative goals\\[5pt]
-  \end{enumerate}
-  \item Deflocculant (sodium silicate or Darvan): 1--3 g if needed, to thin without settling\footnote{Deflocculants help reduce the amount of water needed, but can reduce the workability of the clay beneath the slip. Use sparingly and test.}
+\tikz\foreach \y in {0,...,3} \draw (0,\y) -- (\textwidth,\y);
 
-\end{itemize}
+
+\subsection*{Quick Recipe \& Slip Consistency (for reference)}
+\begin{tikzpicture}
+\node[anchor=north east,text width=.37\textwidth,align=center] at (0,0){
+  Basic $\Delta10$ Kohiki Slip Recipe\\
+    \begin{tabular}{@{}lr@{}}
+      EPK kaolin & 500 g \\
+      Ball clay  & 400 g \\
+      Feldspar   & 600 g \\
+      Silica     & 500 g \\
+    \end{tabular}};
+  \node[anchor=north west,text width=0.6\textwidth,align=center] at (1cm,0){
+    Water: variable -- depends on deflocculant\footnote{Deflocculant (sodium silicate or Darvan): 1--3 g if needed, to thin without settling. Deflocculants help reduce the amount of water needed, but can reduce the workability of the clay beneath the slip. Use sparingly and test.}.\\
+    \vspace{6pt}
+    \begin{enumerate}[leftmargin=*,itemsep=4pt]
+      \item Toothpaste consistency.
+      \item Thick cream consistency.
+      \item Any range in between depending on your application style and decorative goals.
+    \end{enumerate}};
+\end{tikzpicture}
 
 \clearpage
 \section*{Lunch Discussions}
 	\subsection*{Aesthetics of Kohiki}
   Discuss wabi-sabi, the value of subtlety, and how \ul{controlled} imperfection enhances form. % Show 2--3 images and ask students to name one element they find compelling.\\
+  \vfill
   \subsubsection*{Wabi-sabi vs. Mingei}
   % The underlying theme is that wabi-sabi is the aesthetic lens and mingei is the social philosophy.
-
+\vfill
 \begin{center}
 \scalebox{.67}{
 \begin{tikzpicture}[xscale=2,
@@ -283,12 +314,14 @@ event/.style={rectangle,draw,rounded corners,fill=gray!10,align=center,text widt
 \end{tikzpicture}
 }
 \newline
-
+\vfill
+\begingroup
+\renewcommand{\arraystretch}{1.2}% increase line height by 20%
 \begin{tabular}{|l|p{5cm}|p{5cm}|}
 \hline
 \textbf{Aspect} & \textbf{Mingei (Yanagi)} & \textbf{Wabi-sabi} \\
 \hline
-Origin & 1920s–30s folk craft movement led by Yanagi Sōetsu & 16th century Zen tea aesthetics \\
+Origin & 1920s-30s folk craft movement led by Yanagi Sōetsu & 16th century Zen tea aesthetics \\
 \hline
 Focus & Everyday, utilitarian objects made by an anonymous craftsman\textsuperscript{*} & Imperfection, impermanence, rustic simplicity \\
 \hline
@@ -297,6 +330,7 @@ Philosophy & Collective recognition of “beyond beauty and ugliness” & Contem
 Social Dimension & Communal craft traditions, cultural preservation & Elite tea culture, spiritual refinement \\
 \hline
 \end{tabular}
+\endgroup
 
 \begin{flushleft}
 \textsuperscript{*}\footnotesize{Please understand I am using the term ``craftsman'' in the same form as ``human.''}
@@ -304,6 +338,7 @@ Social Dimension & Communal craft traditions, cultural preservation & Elite tea 
 
 \end{center}
 
+\clearpage
 \section*{How Yanagi Differentiated Them}
 
 \begin{itemize}[leftmargin=1.5em]
@@ -317,7 +352,7 @@ Social Dimension & Communal craft traditions, cultural preservation & Elite tea 
 \vspace{1em}
 
 \begin{tcolorbox}[colback=gray!10,colframe=black,title=\textbf{Why This Matters}]
-Yanagi’s distinction is important because it shows that there are different ways of thinking about beauty—some focus on everyday objects made by many people (mingei), while others focus on quiet, simple beauty, and personal reflection (wabi-sabi). 
+Yanagi's distinction is important because it shows that there are different ways of thinking about beauty—some focus on everyday objects made by many people (mingei), while others focus on quiet, simple beauty, and personal reflection (wabi-sabi). 
 Mingei is about community, utility, and cultural survival, while wabi-sabi is about solitude, impermanence, and spiritual refinement. 
 Both overlap in valuing simplicity and naturalness, but they diverge in social function and philosophical grounding.
 
@@ -350,11 +385,11 @@ Explain how wood/soda firing interacts with clay and slip surface—ash depositi
   \item Label slip containers; avoid cross-contamination between different slips.
 \end{itemize}
 
-\subsubsection*{What I Notice / What I Would Change (Fill This Out)}
+\subsubsection*{What I Notice / What I Would Change (Use this for notes on the slip application and construction as well as after the firing, when evaluating your work.)}
 \begin{enumerate}
   \item \rule{0pt}{1cm}Identification: \hrulefill\\
-  \item Observations: \hrulefill\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}\\[6pt]
-  \item One change I would make next time: \hrulefill\\[16pt] \rule{\linewidth}{0.4pt}
+  \item Observations: \hrulefill\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}\\[6pt]
+  \item One change I would make next time: \hrulefill\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}\\[16pt] \rule{\linewidth}{0.4pt}
 \end{enumerate}
 
 \clearpage
@@ -362,7 +397,17 @@ Explain how wood/soda firing interacts with clay and slip surface—ash depositi
 
 % ---------------------------------------------------------------------------
 \section*{Recommended Reading Materials}
-\textcolor{red}{Create a list of recommended books, articles, and online resources for further study on kohiki slip decoration and wood-fired soda firing.}
+
+\begin{itemize}
+  \item \textbf{Soda, Clay, and Fire} by Gail Nichols -- Comprehensive guide on soda firing techniques and chemistry.\footnote{Out of print.}
+  \item \textbf{The Beauty Everyday Things} by Yanagi Sōetsu -- Foundational text on the mingei philosophy.
+  \item \textbf{Wabi-Sabi for Artists, Designers, Poets \& Philosophers} by Leonard Koren -- Exploration of wabi-sabi aesthetics.
+  \item \textbf{Making Marks: Discovering the Ceramic Surface} by Robin Hopper -- Insights into surface decoration techniques.
+  \item \textbf{Soda Glazing} by Ruthanne Tudball -- Practical guide on soda glazing methods.
+  \item \textbf{Salt Glazing} by Phil Rogers -- While focused on salt glazing, it provides useful context for soda firing.
+  \item \url{https://www.beckpots.com/process} -- Casey Beck's website worth exploring for soda firing techniques.
+\end{itemize}
+
 
 \clearpage
 
