@@ -2,22 +2,16 @@
 \usepackage{geometry}
 \geometry{margin=1in}
 \usepackage{xcolor}
-\usepackage{mathspec}
+\usepackage{fontspec}
 \setmainfont{DejaVu Sans}
 \usepackage{enumitem}
 \setlist{nosep}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, positioning, matrix, calc}
-\usepackage{iftex}
-% breakurl uses pdftex-specific primitives; load it only when using pdfTeX.
-% For XeLaTeX/LuaLaTeX use the standard url package (hyperref will work with it).
-\ifPDFTeX
-  \usepackage{breakurl}
-\else
-  \usepackage{xurl} % better automatic URL breaking for XeLaTeX/LuaLaTeX
-  \usepackage{url}
-\fi
-% Allow line breaking in URLs and long links
+
+\usepackage{xurl} % better automatic URL breaking for XeLaTeX/LuaLaTeX
+\usepackage{url}
+
 \def\UrlBreaks{\do\/\do-\do_\do.\do:\do?\do&\do\%}
 \setlength\Urlmuskip{0mu plus 1mu}
 \usepackage[breaklinks=true]{hyperref}
@@ -28,6 +22,34 @@
 \usepackage{soul}
 \usepackage{wrapfig}
 \usepackage{caption}
+\usepackage[automark]{scrlayer-scrpage} % automark keeps marks in sync
+\clearpairofpagestyles
+\ihead{Wood-Fired Soda Firing Workshop}  
+\ohead{December 2025}
+\pagestyle{scrheadings}
+\IfFontExistsTF{Adobe Caslon Pro}{%
+  \newfontface\HeaderFont{Adobe Caslon Pro}[Letters=SmallCaps,Scale=MatchLowercase]%
+}{%
+  % Fallback to Cambria if Adobe Caslon Pro not available 
+  \newfontface\HeaderFont{Cambria}[Scale=MatchLowercase]%
+}
+\setkomafont{pagehead}{\HeaderFont\small}
+\setkomafont{pagefoot}{\HeaderFont\small}
+% Define a KOMA page style that mirrors the existing scrheadings headers
+% but adds a centered blue footer. Use \thispagestyle{noPrint} to apply it.
+\newpairofpagestyles{noPrint}{%
+  \clearpairofpagestyles
+  \ihead{Wood-Fired Soda Firing Workshop}%
+  \ohead{December 2025}%
+  \cfoot{\color{blue}\HeaderFont\footnotesize Not Printed \textemdash\ For Instruction}%
+}{%
+  \clearpairofpagestyles
+  \ihead{Wood-Fired Soda Firing Workshop}%
+  \ohead{December 2025}%
+  \cfoot{\color{blue}\HeaderFont\footnotesize Not Printed \textemdash\ For Instruction}%
+}
+
+
 
 
 \begin{document}
@@ -64,6 +86,8 @@
   \item Encourage integration of surface decoration with form.
   \item Highlight how firing atmosphere alters slip appearance.
 \end{itemize}
+\thispagestyle{noPrint}
+
 \clearpage
 % ---------------------------------------------------------------------------
 \section*{Supplies, Recommended Tools, \& Materials to Bring}
@@ -104,11 +128,13 @@
 
 Here's a quote that I'd like everyone to keep in mind as we work through the kohiki slip exercises and slab building:
 
+{\addfontfeatures{FakeSlant=0.20}%
 \begin{quotation}
   Without consciously thinking something is good or bad, creating as if it were the most natural thing in the world to do, making things that are plain and simple but marvelous, this is the state of mind in which artisans do their finest work.
 
-  I think I can clarify this state of mind through an analogy. For human beings, walking is the most ordinary of activities.  Even the most simple minded person can walk well.But no one is ever praised for being a good walker, and no one takes special pride in doing so.  This is how I would like to view the artisan's state of mind when he is at work.\footnote{Adapted from Soetsu Yanagi, \textbf{The Beauty of Everyday Things}, 1964.}
-\end{quotation}
+  I think I can clarify this state of mind through an analogy. For human beings, walking is the most ordinary of activities.  Even the most simple minded person can walk well. But no one is ever praised for being a good walker, and no one takes special pride in doing so.  This is how I would like to view the artisan's state of mind when he is at work.\footnote{Adapted from Soetsu Yanagi, \textbf{The Beauty of Everyday Things}, 1964.}
+\end{quotation}%
+}
 \section*{Kohiki Slip}
 
 \scalebox{.7}{
@@ -183,6 +209,7 @@ Other links of interest about kohiki ware:
   \item \url{https://dawan-chawan-chassabal.blogspot.com/2010/02/powdery-matsudaira-at-hatakeyama-museum.html}
   \item \url{https://dawan-chawan-chassabal.blogspot.com/2010/11/powdery-matsudaira-revisited.html}\\[5pt]
 \end{itemize}}
+\thispagestyle{noPrint}
 
 \clearpage
 
@@ -198,11 +225,11 @@ The thickness of your clay slab is important for both the construction process a
   \item \textbf{Aesthetics}: The visual weight and tactile feel of the finished piece are directly affected by slab thickness. Thicker walls can feel more robust, while thinner ones may appear more delicate or refined.\vfill
 \end{itemize}
 
-\textbf{Tradeoff}: Choose slab thickness based on your intended technique and form. For kohiki slip decoration, a medium thickness (typically 6-8\,mm) balances workability, surface quality, and structural strength. Always test and adjust based on your clay body and project needs.
+\textbf{Tradeoff}: Choose slab thickness based on your intended technique and form. For kohiki slip decoration, a medium thickness (typically 6-8\,mm) balances workability, surface quality, and structural strength. Always test and adjust based on your clay body and project needs.\vfill
 
 \clearpage
 \subsection*{Exercises With the Brush}
-The following are exercises I encourage you to practice.  Please take these with you when you leave and work on them in your own studio time.
+The following are exercises I encourage you to \ul{practice}.  We will work through them here, but please take these with you when you leave and work on them in your own studio time.
 \subsection*{Practice (30--40 min)}
 Keep materials minimal: work on wooden bats for slip applications.
 \begin{enumerate}
@@ -278,7 +305,7 @@ For a more exaggerated \& dramatic appearance of the brush work on your slab pie
 	\subsection*{Aesthetics of Kohiki}
   Discuss wabi-sabi, the value of subtlety, and how \ul{controlled} imperfection enhances form. % Show 2--3 images and ask students to name one element they find compelling.\\
   \vfill
-  \subsubsection*{Wabi-sabi vs. Mingei}
+  \subsubsection*{Wabi-sabi and Mingei}
   % The underlying theme is that wabi-sabi is the aesthetic lens and mingei is the social philosophy.
 \vfill
 \begin{center}
@@ -346,7 +373,7 @@ Social Dimension & Communal craft traditions, cultural preservation & Elite tea 
   
   \item \textbf{Functional vs. contemplative:} Mingei objects are functional tools of daily life (bowls, textiles, furniture). Wabi-sabi objects (tea bowls, gardens, architecture) are often vehicles for meditation and aesthetic reflection.
   
-  \item \textbf{Democratic vs. elite aesthetics:} Yanagi saw mingei as a democratic art form, accessible to all. Wabi-sabi, though humble, was historically tied to the tea ceremony and elite Zen culture.
+  \item \textbf{Democratic vs. elite aesthetics:} Yanagi saw mingei as a community art form, accessible to all. Wabi-sabi, though humble, was historically tied to the tea ceremony and elite Zen culture.
 \end{itemize}
 
 \vspace{1em}
@@ -358,20 +385,36 @@ Both overlap in valuing simplicity and naturalness, but they diverge in social f
 
 Put simply, Mingei is a social philosophy of creation and use, while Wabi-sabi is \textit{a way of seeing the world} and objects within it. Objects do not possess a quality of wabi-sabi; rather, wabi-sabi is a lens through which we appreciate them.
 \end{tcolorbox}
+\clearpage
 
 {\begin{center}
 % Wabi-Sabi gallery
 \input{wabiSabi_generated_gallery.tex}
+\thispagestyle{noPrint}
 \clearpage
 % Hamada and Kawai gallery 
 \input{generated_gallery.tex}
 \end{center}}
+\thispagestyle{noPrint}
 \clearpage
 
 
 \textcolor{red}{Work on the following sections to complete the lesson plan.}
 \subsection*{Kiln Transformations}
 Explain how wood/soda firing interacts with clay and slip surface—ash deposition, reduction/oxidation effects, and how slip texture traps or resists glaze.
+
+\subsubsection*{Wood Firing Basics}
+
+
+
+\subsubsection*{Soda Firing Basics}
+
+
+
+\subsubsection*{Wood + Soda}
+
+
+
 
 % Slab expansion, construction, and drying discussion
 \subsection*{Slab Expansion \& Construction}
@@ -405,7 +448,7 @@ Explain how wood/soda firing interacts with clay and slip surface—ash depositi
   \item \textbf{Making Marks: Discovering the Ceramic Surface} by Robin Hopper -- Insights into surface decoration techniques.
   \item \textbf{Soda Glazing} by Ruthanne Tudball -- Practical guide on soda glazing methods.
   \item \textbf{Salt Glazing} by Phil Rogers -- While focused on salt glazing, it provides useful context for soda firing.
-  \item \url{https://www.beckpots.com/process} -- Casey Beck's website worth exploring for soda firing techniques.
+  \item \url{https://www.beckpots.com/process} -- Casey Beck's website; Worth exploring for soda firing recipes \& techniques.
 \end{itemize}
 
 
@@ -413,8 +456,8 @@ Explain how wood/soda firing interacts with clay and slip surface—ash depositi
 
 
 
+\thispagestyle{noPrint}
 
-\newpage
 \section*{Lesson Plan: Wood-Fired Soda Firing}
 
 \subsection*{Objectives}
